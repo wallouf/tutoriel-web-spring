@@ -2,18 +2,18 @@ package com.developpez.rpouiller.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping( "/bonjour" )
+@RequestMapping( "/bonjour/{personne}/{test}" )
 public class BonjourController {
 
     @RequestMapping( method = RequestMethod.GET )
     public String afficherBonjour( final ModelMap pModel,
-            @RequestParam( value = "personne" ) final String pPersonne,
-            @RequestParam( value = "test" ) final String pTest ) {
+            @PathVariable( value = "personne" ) final String pPersonne,
+            @PathVariable( value = "test" ) final String pTest ) {
 
         pModel.addAttribute( "personne", pPersonne );
         pModel.addAttribute( "test", pTest );
