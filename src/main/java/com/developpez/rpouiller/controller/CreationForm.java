@@ -7,6 +7,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class CreationForm {
 
     @NotEmpty
+    @Pattern( regexp = ".{0,49}" )
     private String libelle;
     @NotEmpty
     @Pattern( regexp = "\\d*" )
